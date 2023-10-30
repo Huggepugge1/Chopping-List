@@ -1,0 +1,150 @@
+:root {
+    font-size: 10px;
+    --var-black: #342E37;
+    --var-primary: #39A2AE;
+    --var-secondary: #55DBCB;
+    --var-third: #DCD6F7;
+    --var-accent: #F25F5C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+nav > a {
+    font-size: 3rem;
+    color: var(--var-black);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: flex-grow 0.2s ease;
+}
+
+nav > a:hover {
+    flex-grow: 1.2;
+}
+
+nav > a:nth-child(1) {
+    background-color: var(--var-primary);
+}
+
+nav > a:nth-child(2) {
+    background-color: var(--var-secondary);
+}
+
+nav > a:nth-child(3) {
+    background-color: var(--var-third);
+}
+
+.main-nav {
+    height: 100vh;
+}
+
+.main-nav > a {
+    font-size: 5rem;
+}
+
+main#inventory {
+    display: flex;
+    justify-content: center;
+}
+
+main#inventory > section {
+    width: 50vw;
+    min-height: 90vh;
+}
+
+main#inventory > section#update {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main#inventory > section#update > h1 {
+    color: var(--var-black);
+    font-size: 5rem;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+main#inventory > section#update > h2 {
+    color: var(--var-black);
+    font-size: 4rem;
+    padding: 2rem 0;
+}
+
+main#inventory > section#update > form {
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr;
+    grid-template-areas: 
+        "type type"
+        "amount amount"
+        "unit submit";
+    width: 100%;
+}
+
+main#inventory > section#update > form > input[type="text"] {
+    grid-area: type;
+    border: 2px solid var(--var-accent);
+    border-radius: 5px;
+}
+
+main#inventory > section#update > form > input[type="number"] {
+    grid-area: amount;
+    border: 2px solid var(--var-accent);
+    border-radius: 5px;
+}
+
+main#inventory > section#update > form > input[type="button"] {
+    background-color: var(--var-accent);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+main#inventory > section#update > form > select {
+    border: 2px solid var(--var-accent);
+    border-radius: 5px;
+}
+
+main#inventory > section#update > form > input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: var(--var-third);
+}
+
+main#inventory > section#update > form > input, main#inventory > section#update > form > select {
+    color: var(--var-black);
+    font-size: 2rem;
+    padding: 0.25em;
+    margin: 0.25em;
+}
+
+main#inventory > section#current {
+    background-color: var(--var-black);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main#inventory > section#current > h1 {
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+main#inventory > section#current > #groceries {
+    color: white;
+    font-size: 2rem;
+    width: 80%;
+}

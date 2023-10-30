@@ -5,21 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script defer type="module" src="inventory.js"></script>
     <title>Document</title>
 </head>
 <body>
     <nav>
-        <a href="./">                   Home</a>
-        <a href="./shopping-list.html"> Shopping list</a>
-        <a href="./recipies.html">      Recipies</a>
+        <a href=".">                   Home</a>
+        <a href="./shopping-list"> Shopping list</a>
+        <a href="./recipies">      Recipies</a>
     </nav>
 
-    <main class="inventory">
-        <section class="update">
-    
-        </section>
-        <section class="current">
+    <main id="inventory">
+        <section id="update">
+            <h1>Update Inventory</h1>
+            <h2>Add item</h2>
+            <form id="add-item">
+                <input type="text" name="type" placeholder="Item">
+                <input type="number" name="amount" placeholder="Amount">
+                <select name="unit">
+                    <option value="g">g</option>,
+                    <option value="hg">hg</option>
+                    <option value="kg">kg</option>
+                
+                    <option value="ml">ml</option>
+                    <option value="cl">cl</option>
+                    <option value="dl">dl</option>
+                    <option value="l">l</option>
+                
+                    <option value="st">st</option>
+                </select>
+                <input type="button" onclick="add_item()" value="Add item">
 
+                <script>
+                    const add_item = async () => {
+                    const form = document.querySelector("#add-item");
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData);
+                    const body = JSON.stringify(data);
+                    await fetch("/add_grocery", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: body
+                    })
+                        .then(result => console.log(result.data))
+                        .catch(err => console.log(err));
+                    }
+                </script>
+            </form>
+        </section>
+        <section id="current">
+            <h1>Inventory</h1>
+            <ul id="groceries"></ul>
         </section>
     </main>    
 </body>

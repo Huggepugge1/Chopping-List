@@ -1,0 +1,12 @@
+[
+    {
+        "typ": "Egg",
+        "amount": 100,
+        "unit": "ST"
+    },
+    {
+        "typ": "Milk",
+        "amount": 1,
+        "unit": "L"
+    }
+]
